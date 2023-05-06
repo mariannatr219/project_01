@@ -54,3 +54,40 @@ elif len(bracket)%2 == 0:
     print(True)
   else:
     print(False)
+
+# ################################
+# Напишите ту же функцию, которая принимала бы и текст со скобками
+# Например:
+#   string = 'hi(hi)()'     ->  true
+#   string = 'hi())('       ->  false
+#   string = '((())()())'   ->  true
+
+
+user_answer = input("Введите последовательность скобок до 100 символов")
+bracket = ''
+for i in range(0, len(user_answer)):
+  if ord(user_answer[i]) != ord(')') and ord(user_answer[i]) != ord('('):
+    continue
+  else:
+    bracket += user_answer[i]
+
+if len(bracket) > 100:
+  print('Вы введи больше 100 символов')
+elif len(bracket) == 0:
+  print(True)  
+elif len(bracket)%2 != 0:
+  print(False)
+elif len(bracket)%2 == 0:
+  variable = bracket
+  br_pos = 0
+  while br_pos != -1:
+      new_bracket = variable
+      variable = ''
+      br_pos = new_bracket.find('()')
+      for i in range(0, len(new_bracket)):
+          if i != br_pos and i != br_pos + 1:
+              variable += new_bracket[i]
+  if len(new_bracket) == 0:
+    print(True)
+  else:
+    print(False)
