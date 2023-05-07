@@ -39,9 +39,10 @@ monthes = [{"январь" : 31},
            {"декабрь" :31},
                       ]
 month_number = int(input('Введите номер месяца'))
-if month_number in range(1, len(monthes)+1):
+try:
    answer = monthes[month_number - 1]
    for i in answer:
-     print('Вы ввели', i, ".", answer[i], "дней")
-else:
-   print("Такого месяца нет")
+     print(f'Вы ввели {i}. {answer[i]} дней')
+
+except IndexError:
+   print("Такого месяца нет!")
