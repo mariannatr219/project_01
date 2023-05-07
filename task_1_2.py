@@ -30,27 +30,56 @@ my_favorite_songs = [
     ['In This World', 4.02],
 ]
 
-k = 3
-songs = []
 minutes = []
 seconds = []
-while k != 0:
+for i in range(3):
   random_song = random.choice(my_favorite_songs)
-  k -= 1
-  songs.append(random_song)
-  minute = int(random_song[1])
-  second = round(random_song[1] % 1, 2)
-  minutes.append(minute)
-  seconds.append(second)
-total_minute = sum(minutes)
-total_seconds = sum(seconds) / 0.60
-total_time_m = int(total_minute + total_seconds)
-total_time_s = int(total_seconds % 1 *60)
+  minutes.append(int(random_song[1]))
+  seconds.append(round(random_song[1] % 1, 2))
 
+total_time_m = int(sum(minutes) + (sum(seconds) / 0.60))
+total_time_s = int( (sum(seconds) / 0.60) % 1 *60)
 
 from datetime import time
-
 total_time_new_format = time(minute = int(total_time_m), second = int(total_time_s))
 
+print('Три песни звучат', total_time_m, 'минут', total_time_s, 'секунд', total_time_new_format)
 
-print('Рандомно выбраны 3 трека: ', songs, 'Три песни звучат ', total_time_m, ' минут', total_time_s, 'секунд', total_time_new_format)
+# Пункт B. 
+# Есть словарь песен 
+# Распечатайте общее время звучания трех случайных песен
+# Вывод: Три песни звучат ХХХ минут.
+
+
+import random
+import datetime
+
+my_favorite_songs_dict = {
+    'Waste a Moment': 3.03,
+    'New Salvation': 4.02,
+    'Staying\' Alive': 3.40,
+    'Out of Touch': 3.03,
+    'A Sorta Fairytale': 5.28,
+    'Easy': 4.15,
+    'Beautiful Day': 4.04,
+    'Nowhere to Run': 2.58,
+    'In This World': 4.02,
+}
+
+
+my_favorite_songs_list = []
+my_favorite_songs_list += my_favorite_songs_dict.keys()
+random_my_favorite_songs_dict= random.sample(my_favorite_songs_list, 3)
+
+from decimal import Decimal
+from datetime import timedelta
+
+total_time = timedelta()
+for song in random_my_favorite_songs_dict:
+  song_time = Decimal(my_favorite_songs_dict[song])
+  song_time = song_time.quantize(Decimal("1.00"))
+  song_time_sec = int(((song_time) - int(song_time))*100)
+  song_time_new_format = timedelta(minutes = int(song_time), seconds = song_time_sec)
+  total_time += song_time_new_format
+  
+print('Три песни звучат', int(total_time.total_seconds()/60), 'минут', total_time)
