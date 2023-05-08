@@ -17,11 +17,11 @@ Original file is located at
 # Использовать условный оператор if-elif-else нельзя!
 
 def switch_it_up(number):
-  print("sweetch_it_up(", number, ") -> ", numbers[number-1])
+  print(f"switch_it_up({number}) -> {numbers[number-1]}")
     
-numbers = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
+numbers = ["'One'", "'Two'", "'Three'", "'Four'", "'Five'", "'Six'", "'Seven'", "'Eight'", "'Nine'"]
 number = int(input("Введите число "))
 try:
   switch_it_up(number)
 except IndexError:
-  print("sweetch_it_up(", number, ") -> ", None)
+  print(f"switch_it_up({number}) -> None")
