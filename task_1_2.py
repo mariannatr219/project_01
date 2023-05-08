@@ -43,7 +43,7 @@ total_time_s = int( (sum(seconds) / 0.60) % 1 *60)
 from datetime import time
 total_time_new_format = time(minute = int(total_time_m), second = int(total_time_s))
 
-print('Три песни звучат', total_time_m, 'минут', total_time_s, 'секунд', total_time_new_format)
+print(f'Три песни звучат {total_time_m} минут {total_time_s} секунд {total_time_new_format}')
 
 # Пункт B. 
 # Есть словарь песен 
@@ -66,7 +66,6 @@ my_favorite_songs_dict = {
     'In This World': 4.02,
 }
 
-
 my_favorite_songs_list = []
 my_favorite_songs_list += my_favorite_songs_dict.keys()
 random_my_favorite_songs_dict= random.sample(my_favorite_songs_list, 3)
@@ -82,4 +81,4 @@ for song in random_my_favorite_songs_dict:
   song_time_new_format = timedelta(minutes = int(song_time), seconds = song_time_sec)
   total_time += song_time_new_format
   
-print('Три песни звучат', int(total_time.total_seconds()/60), 'минут', total_time)
+print(f'Три песни звучат {int(total_time.total_seconds()/60)} минут {total_time}')
