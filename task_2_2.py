@@ -24,7 +24,7 @@ def quarter_of(month):
     quarter = "третьего" 
   elif 9 < month <= 12:
     quarter = "четвертого" 
-  print("месяц", month, "(", monthes[month - 1], ") является частью", quarter, "квартала")
+  print(f"месяц {month} ({monthes[month - 1]}) является частью {quarter} квартала")
 
 monthes = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
 month = int(input("Введите номер месяца "))
