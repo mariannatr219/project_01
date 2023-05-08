@@ -44,4 +44,4 @@ for product in titles:
   for i in store[titles[product]]:
          total_quantity += i['quantity']
          total_price += i['quantity']*i['price']
-  print(product, '- ',total_quantity, 'шт, стоимость ', total_price, 'руб')
+  print(f'{product} - {total_quantity} шт, стоимость {total_price} руб')
